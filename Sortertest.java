@@ -23,7 +23,10 @@
         runSortingAlgorithms(testArray);
         System.exit(0);
     }
-
+    /**
+     * Tests the insertionSort, mergeSort, quickSort, heapSort and radixSort algorithms 
+     * @param testArray
+     */
     private static void runSortingAlgorithms(int[] testArray){
 
         Sorter s = new Sorter(); //calling Sorter program 
@@ -55,6 +58,7 @@
     }
 
     /**
+     * Creates the test array
      * @param testArraySize is the size of the array being created 
      */
 
@@ -74,6 +78,7 @@
         return arrayCreated;
     }
     /**
+     * Function to print out the array 
      * @param arr is the array being printed 
      * 
      */
@@ -85,7 +90,7 @@
             
             for(int i = 0; i < a.length; i++){
 
-                if (i!=a.length-1) System.out.print(a[y] + " ");
+                if (i!=a.length-1) System.out.print(a[i] + " ");
                 else  System.out.print(a[y]);
             }
             System.out.print("]\n");
