@@ -1,19 +1,17 @@
 /**
  * Test class for the implemented sorting algorithms 
  * @author Caitlyn Chan 
+ * compilation: java -cp *.ja
  */
+import java.util.*;
 
- public class SorterTest{
+ public class Sortertest{
 
     public static void main (String[] args){
 
         int [] testArray; 
 
-        if(args.length == 0) {
-
-            testArray = new int[0]; 
-        }
-        else if (args.length == 1) { // difference between else & else if?? 
+        if (args.length == 1) { // difference between else & else if?? 
             testArray = makeTheTestArray(Integer.parseInt(args[0])); // parses a string and returns an integer
         }
         else {
@@ -30,68 +28,63 @@
     private static void runSortingAlgorithms(int[] testArray){
 
         Sorter s = new Sorter(); //calling Sorter program 
-        System.out.println ("Test array is: ");
+        System.out.println ("Test array is: " + Arrays.toString(testArray));
         printArray(testArray); 
 
         checkIfSorted(testArray);
         
         int[] insertionSortArray = testArray.clone();
         s.insertionSort(insertionSortArray);
-        printOutput(testArray, insertionSortArray)
+        printOutput(testArray, insertionSortArray);
 
-        int[] mergeSortArray = testArray.clone(); 
-        s.mergeSort(mergeSortArray);
-        printOutput(testArray, mergeSortArray);
+        // int[] mergeSortArray = testArray.clone(); 
+        // s.mergeSort(mergeSortArray);
+        // printOutput(testArray, mergeSortArray);
 
-        int[] quickSortArray = testArray.clone(); 
-        s.quickSort(quickSortArray);
-        printOutput(testArray, quickSortArray); 
+        // int[] quickSortArray = testArray.clone(); 
+        // s.quickSort(quickSortArray);
+        // printOutput(testArray, quickSortArray); 
 
-        int[] heapSortArray = testArray.clone(); 
-        s.heapSort(heapSortArray);
-        printOutput(testArray, heapSortArray); 
+        // int[] heapSortArray = testArray.clone(); 
+        // s.heapSort(heapSortArray);
+        // printOutput(testArray, heapSortArray); 
 
-        int[] radixSortArray = testArray.clone();
-        s.radixSort(radixSortArray); 
-        printOutput(testArray, radixSortArray); 
+        // int[] radixSortArray = testArray.clone();
+        // s.radixSort(radixSortArray); 
+        // printOutput(testArray, radixSortArray); 
 
     }
-
-    /**
-     * Creates the test array
-     * @param testArraySize is the size of the array being created 
-     */
-
     private static int[] makeTheTestArray(int testArraySize){
 
+        Random rand = new Random(); 
         int[] arrayCreated = new int[testArraySize];
         if(testArraySize < 0) {
             System.out.println("Invalid array size. Need an array of at least two elements\n");
         }
         else if (testArraySize < 2) {
             System.out.println("Array of size 1 = already sorted. Needs to have > 2 elements\n");
-
         }
         for (int i = 0; i < testArraySize; i++){
-            arrayCreated = (int)(Math.random() * 100);
+           
+            int value = rand.nextInt(50);
+            arrayCreated[i]= value;
+        
         }
         return arrayCreated;
     }
-    /**
-     * Function to print out the array 
-     * @param arr is the array being printed 
-     * 
-     */
+    
     private static void printArray(int[] arr){
 
         if(arr.length < 100){
 
             System.out.print("[");
             
-            for(int i = 0; i < a.length; i++){
+            for(int i = 0; i < arr.length; i++){
 
-                if (i!=a.length-1) System.out.print(a[i] + " ");
-                else  System.out.print(a[y]);
+                if (i!=arr.length-1) 
+                    System.out.print(arr[i] + " ");
+                else  
+                    System.out.print(arr[i]);
             }
             System.out.print("]\n");
         }
@@ -99,6 +92,18 @@
             System.out.println("Array is a big boi and has exceed parameter limit of 100 elements\n");
         }
     }
+    /**
+     * Creates the test array
+     * @param testArraySize is the size of the array being created 
+     */
+
+  
+    /**
+     * Function to print out the array 
+     * @param arr is the array being printed 
+     * 
+     */
+ 
 
     /**
      * Checks if the the array has indeed been sorted 
