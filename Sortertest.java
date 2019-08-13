@@ -37,9 +37,9 @@ import java.util.*;
         s.insertionSort(insertionSortArray);
         printOutput(testArray, insertionSortArray);
 
-        // int[] mergeSortArray = testArray.clone(); 
-        // s.mergeSort(mergeSortArray);
-        // printOutput(testArray, mergeSortArray);
+        int[] mergeSortArray = testArray.clone(); 
+        s.mergeSort(mergeSortArray);
+        printOutput(testArray, mergeSortArray);
 
         // int[] quickSortArray = testArray.clone(); 
         // s.quickSort(quickSortArray);
