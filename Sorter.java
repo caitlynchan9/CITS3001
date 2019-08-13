@@ -46,24 +46,36 @@ public class Sorter {
      * @param end ending index
      * references: CITS2200 Sorter lab by yours truly ~ Caitlyn 
      */
-    public void quickSort(int [] arr, int start, int end){
+
+    public void quickSort(int arr[]){
+        long startTime = System.nanoTime();
+        qSort(arr, 0, arr.length-1);
+        
+        long endTime = System.nanoTime(); 
+        long time = (endTime - startTime); 
+        System.out.println("Execution time was: " + time + " nanoseconds for quickSort\n");
+
+
+    }
+    public void qSort(int [] arr, int start, int end){
 
         if (start < end){ 
 
             int splitIndex = partition(arr, start, end); //splits original unsorted array 
-            quickSort(arr, start, splitIndex - 1); //sorts first half of array (+/- 1 due to indexing)
-            quickSort(arr, splitIndex + 1 , end); //sorts back half of array 
+            qSort(arr, start, splitIndex - 1); //sorts first half of array (+/- 1 due to indexing)
+            qSort(arr, splitIndex + 1 , end); //sorts back half of array 
         }
     }
     public int partition(int[]arr, int start, int end){
         
+        //sortIndex is the pivot 
         int sortIndex = arr[end];  //using last element of the array to be used as the pivot 
         int startingIndex  = start - 1; // gets starting index 
 
         for (int i = start; i <= (end-1); i++){ 
 
-            if(arr[startingIndex] <= sortIndex) { //if starting index element is less than ending index element
-                i++; // move along cotton eye joe 
+            if(arr[i] <= sortIndex) { //if starting index element is less than ending index element
+                startingIndex++; // move along cotton eye joe 
                 int temp = arr[startingIndex]; //temp element to assign it to the current smaller element     
                 arr[startingIndex] = arr[i];
                 arr[i] = temp; 
@@ -84,7 +96,7 @@ public class Sorter {
 
     public void mergeSort (int[] arr){
         long startTime = System.nanoTime();
-        sort(arr, 0, arr.length-1);
+        mSort(arr, 0, arr.length-1);
         
 
         long endTime = System.nanoTime(); 
@@ -145,14 +157,14 @@ public class Sorter {
     /**
      * Divide and conquer algorithm -> division into sub problems 
      */
-    public void sort(int [] arr, int start , int end) {
+    public void mSort(int [] arr, int start , int end) {
 
         if( start < end ) {
             //find mid point 
             int middle = (start + end)/2;  
             //sort first and second halves 
-            sort(arr, start, middle);
-            sort(arr, middle + 1, end);
+            mSort(arr, start, middle);
+            mSort(arr, middle + 1, end);
             //merges sorted halves 
             merge(arr, start, middle, end);
         }
