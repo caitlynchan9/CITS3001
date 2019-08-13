@@ -41,9 +41,9 @@ import java.util.*;
         s.mergeSort(mergeSortArray);
         printOutput(testArray, mergeSortArray);
 
-        // int[] quickSortArray = testArray.clone(); 
-        // s.quickSort(quickSortArray);
-        // printOutput(testArray, quickSortArray); 
+        int[] quickSortArray = testArray.clone(); 
+        s.quickSort(quickSortArray);
+        printOutput(testArray, quickSortArray); 
 
         // int[] heapSortArray = testArray.clone(); 
         // s.heapSort(heapSortArray);
