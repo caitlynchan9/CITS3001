@@ -1,7 +1,7 @@
 # CITS3001
 CITS3001: Algorithms, Agents and AI. 
 
-Repository contains lab work for the following: ✔
+Repository contains lab work for the following: 
 
 Lab 0: Sorting Algorithms []
 Lab 1: String Algorithms []
